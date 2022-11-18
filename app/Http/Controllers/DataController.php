@@ -12,7 +12,7 @@ class DataController extends Controller
 {
     public function index()
     {
-        return view('data.index');
+        return view('admin.data.index');
     }
 
     public function laporan(Request $request)
@@ -28,7 +28,7 @@ class DataController extends Controller
             if (!empty($detail->barang_id)) {
                 $barang = Barang::where('id', $detail->barang_id)->first();
                 // dd($barang->nama_barang);
-                
+
                 $data[] = [
                     'no' => $no++,
                     'nama' => $r->user2->name,

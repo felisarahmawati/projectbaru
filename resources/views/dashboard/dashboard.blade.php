@@ -23,6 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -45,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <button type="submit" class="dropdown-item">Logout</button>
                 </form>
               </li>
-      </div>  
+      </div>
     </ul>
 </nav>
 
@@ -60,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="d-block">Sahabat Petualang</a>
           </div>
       </div>
-  
+
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
@@ -72,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
         </div>
-  
+
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
@@ -104,14 +105,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
 
-            <li class="nav-item">
-              <a href="/laporan" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Transaksi
-                </p>
-              </a>
-            </li>    
+            <li class="list {{ Request::segment(2) == 'akun' ? 'active' : ''}}">
+                <div class="iocn-link">
+                    <a>
+                        <i class="bx bx-data"></i>
+                        <span class="link_name dropBtn">Transaksi</span>
+                    </a>
+                    <i class="bx bxs-chevron-down arrow"></i>
+                </div>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="/laporan">Transaksi</a>
+                    </div>
+                </div>
+            </li>
 
             <li class="nav-item">
               <a href="/data" class="nav-link">
@@ -120,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Laporan
                 </p>
               </a>
-            </li>    
+            </li>
     </ul>
   </nav>
 </div>
@@ -226,3 +233,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 </body>
 </html>
+

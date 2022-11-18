@@ -1,17 +1,22 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AlatController;
-use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\Admin\Kategori\PaketController;
+use App\Http\Controllers\Admin\Transaksi\PembayaranController;
+use App\Http\Controllers\Admin\Transaksi\KonfirmasiPembayaranController;
+use App\Http\Controllers\Admin\Transaksi\DataTrsansaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +38,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-Route::get('admin/home', 'App\Http\Controllers\HomeController@handleAdmin')->name('admin.route')->middleware('admin');
+Route::get('/admin/home', 'App\Http\Controllers\HomeController@handleAdmin')->name('admin.route')->middleware('admin');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('sewa/{id}', [App\Http\Controllers\SewaController::class, 'index']);
 Route::post('sewa/{id}', [App\Http\Controllers\SewaController::class, 'sewa']);
 
+//Paket
+Route::get('/admin/kategori/paket/index', 'App\Http\Controllers\Admin\Kategori\PaketController@index');
+
+//Menunggu pembayaran
+Route::get('/admin/transaksi/pembayaran/index', 'App\Http\Controllers\Admin\Transaksi\PembayaranController@index');
+
+//Menunggu transaksi
+Route::get('/admin/transaksi/konfirmasi/index', 'App\Http\Controllers\Admin\Transaksi\KonfimasiPembayaranController@index');
+
+//Data Transaksi
+Route::get('/admin/transaksi/datatransaksi/index', 'App\Http\Controllers\Admin\Transaksi\DataTransaksiController@index');
+Route::controller('/dashboard/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard']);
 Route::get('/about', function () {
     return view('About', [
         "title" => "About"
@@ -61,11 +78,11 @@ Route::get('/categories', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return view('Dashboard',[
-        "title" => "Dashboard"
-    ]);
-});
+// Route::get('/dashboard/dashboard', function () {
+//     return view('/dashboard/dashboard',[
+//         "title" => "Dashboard"
+//     ]);
+// });
 // Route::get('/formulir', function () {
 //     return view('Formulir',[
 //         "title" => "Formulir"

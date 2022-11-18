@@ -1,7 +1,7 @@
 @extends('dashboard.dashboard')
 @section('content')
 <div class="container-fluid">
-  <div class="row">
+  {{-- <div class="row">
     <div class="col">
       <div class="card">
         <div class="card-header">
@@ -37,7 +37,7 @@
                     200.000
                   </td>
                   <td>
-                    0                  
+                    0
                   </td>
                   <td>
                     27.000
@@ -71,7 +71,7 @@
                     200.000
                   </td>
                   <td>
-                    0                  
+                    0
                   </td>
                   <td>
                     27.000
@@ -105,7 +105,7 @@
                     200.000
                   </td>
                   <td>
-                    0                  
+                    0
                   </td>
                   <td>
                     27.000
@@ -139,7 +139,7 @@
                     200.000
                   </td>
                   <td>
-                    0                  
+                    0
                   </td>
                   <td>
                     27.000
@@ -173,7 +173,7 @@
                     200.000
                   </td>
                   <td>
-                    0                  
+                    0
                   </td>
                   <td>
                     27.000
@@ -202,6 +202,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
+  JADWAL PEMOTRETAN, PEMBAYARAN, PAKET BOOK
 </div>
 @endsection

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../images/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top me-2">
-        SPA 
+        <img src="images/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top me-2">
+        Photograph
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,19 +13,19 @@
             <a class="nav-link {{--{{($title ==="Home")? 'active' : ''}}--}}" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{--{{($title ==="About")? 'active' : ''}}--}}" href="/about">About us</a>
+            <a class="nav-link {{--{{($title ==="Categories")? 'active' : ''}}--}}" href="/categories">Daftar Paket</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{--{{($title ==="About")? 'active' : ''}}--}} " href="/about">Faqs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{--{{($title ==="Contact")? 'active' : ''}}--}} " href="/contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{--{{($title ==="Categories")? 'active' : ''}}--}} " href="/categories">Categories</a>
           </li>
         </ul>
         <ul class="navbar-nv ms-auto">
           @auth
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: white;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user me-1"></i>{{ auth()->user()->name }} 
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: white;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user me-1"></i>{{ auth()->user()->name }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <form action="/logout" method="post">
@@ -40,7 +40,7 @@
               $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
                 if(!empty($pesanan_utama))
                 {
-                 $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count(); 
+                 $notif = \App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
                 }
             ?>
             <a class="nav-link" href="{{ url('check-out') }}" style="color: white;">

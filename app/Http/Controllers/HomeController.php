@@ -29,6 +29,11 @@ class HomeController extends Controller
 
     public function handleAdmin()
     {
+        return view('dashboard.dashboardindex');
+    }
+
+    public function dashboard()
+    {
         return view('dashboard.dashboard');
-    }  
+    }
 }
