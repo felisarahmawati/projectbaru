@@ -61,6 +61,20 @@
                 </ul>
             </li>
 
+
+            <li class="list {{ Request::segment(2) == 'jadwal' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class="bi bi-calendar"></i>
+                        <span class="link_name dropBtn">Jadwal</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu">
+                    <a href="/admin/jadwal/index">Jadwal</a>
+                </div>
+            </li>
+
             <li class="list {{ Request::segment(2) == 'transaksi' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>

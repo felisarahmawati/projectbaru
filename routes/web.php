@@ -6,7 +6,8 @@ use App\Http\Controllers\AlatController;
 use App\Http\Controllers\Admin\Kategori\PaketController;
 use App\Http\Controllers\Admin\Transaksi\PembayaranController;
 use App\Http\Controllers\Admin\Transaksi\KonfirmasiPembayaranController;
-use App\Http\Controllers\Admin\Transaksi\DataTrsansaksiController;
+use App\Http\Controllers\Admin\Transaksi\DataTransaksiController;
+use App\Http\Controllers\Admin\Jadwal\BookingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -54,6 +55,10 @@ Route::get('/admin/transaksi/konfirmasi/index', 'App\Http\Controllers\Admin\Tran
 
 //Data Transaksi
 Route::get('/admin/transaksi/datatransaksi/index', 'App\Http\Controllers\Admin\Transaksi\DataTransaksiController@index');
+
+//Jawab
+Route::get('/admin/jadwal/index', 'App\Http\Controllers\Admin\Jadwal\BookingController@index');
+
 Route::controller('/dashboard/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard']);
 Route::get('/about', function () {
     return view('About', [
